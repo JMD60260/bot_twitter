@@ -32,10 +32,24 @@ def login_streaming
   clientst
 end 
  # Dis Bonjour
-def bonjour
+def bonjour(clientlog)
   journalist_jour.each do |i|
     clientlog.update(" #{i} Merci pour votre travail ! #Bonjour_monde @THP ")
   end 
 end
 
+ # follow
+ def like_follow_stream(clientlog, clientst)
+  clientst.filter(track:"#Bonjour_monde") { |object|
+  clientlog.favorite(object)
+  client.follow(object.user.screen_name) if (object.user.screen_name) != "dardyjm"
+  }
+  end
+
+ # like
+ def like(clientlog)
+  client.search("#Bonjour_monde", result_type: "recent").take(1).collect do |tweet|
+    "#{tweet.user.screen_name}: #{tweet.text}"
+  end
+ end
 
