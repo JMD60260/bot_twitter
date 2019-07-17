@@ -1,0 +1,5 @@
+
+
+
+     choix = rand(0..20)
+puts choix
