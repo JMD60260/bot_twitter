@@ -3,6 +3,7 @@ require 'pry'
 require 'dotenv'
 require 'rubocop'
 require 'rspec'
+require 'twitter'
 
 
 Dotenv.load('../.env') # Ceci appelle le fichier .env (situé dans le même dossier que celui d'où tu exécute app.rb)
